@@ -1,0 +1,40 @@
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nom = htmlspecialchars($_POST["nom"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $panier = htmlspecialchars($_POST["panier"]);
+
+    echo "<h1>Merci $nom pour votre commande !</h1>";
+    echo "<p>Confirmation envoyée à: $email</p>";
+    echo "<p>Détails du panier: $panier</p>";
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Finaliser commande</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Finaliser la commande</h1>
+  </header>
+  <main style="padding: 20px;">
+    <form method="POST">
+      <label>Nom complet:</label><br>
+      <input type="text" name="nom" required><br><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br><br>
+      <label>Détails du panier:</label><br>
+      <textarea name="panier" required placeholder="Ex: 2x Casque, 1x T-shirt"></textarea><br><br>
+      <button type="submit">Confirmer</button>
+    </form>
+  </main>
+</body>
+</html>
+
